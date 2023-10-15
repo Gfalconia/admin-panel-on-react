@@ -1,26 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import * as React from 'react';
+import Button from '@mui/material/Button';
+import Stack from '@mui/material/Stack';
 
-function App() {
+const adminUrl = process.env.LIVETV_ADMIN;
+const supervisordAz = process.env.SUPERVISORD_AZ;
+const ruslanaAdmin = process.env.RUSLANA_ADMIN;
+const serverAz = process.env.SERVER_AZ;
+
+export default function ResponsiveDrawer() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Stack spacing={2} direction="column">
+      <Button href={adminUrl} variant="text">livetv.az админ панель</Button>
+      <Button href={ruslanaAdmin} variant="text">Руслана админ панель</Button>
+      <Button href={serverAz} variant="text">Азербайджанские каналы редактор</Button>
+      <Button href={supervisordAz} variant="text">Азербайджанские каналы статус и перезапуск</Button>
+    </Stack>
   );
-}
 
-export default App;
+}
